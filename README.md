@@ -72,4 +72,6 @@ $ vendor/bin/phpcs --standard=phpcs.xml --extensions=php .
 # PHP Mess Detector 
 
 Must run PHP Mess Detector before creating pull request and fix all violations
-$ vendor/bin/phpmd . text ruleset.xml --suffixes php --exclude node_modules,resources,storage,vendor
+```bash
+$ vendor/bin/phpmd . text ruleset.xml --suffixes php --exclude node_modules,resources,storage,vendor,.phpstorm.meta.php,_ide_helper.php,app\Console\Kernel.php
+```

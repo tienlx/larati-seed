@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Repositories\Eloquent\UserRepositoryEloquent;
+use App\Repositories\UserRepository;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -24,11 +26,14 @@ class RepositoryServiceProvider extends ServiceProvider
     public function register()
     {
         $repositories = [
-             \App\Repositories\UserRepositoryInterface::class => \App\Repositories\Eloquent\UserRepository::class,
+            'UserRepository',
+            'PostRepository',
         ];
 
-        foreach ($repositories as $interface => $repository) {
-            $this->app->singleton($interface, $repository);
+        foreach ($repositories as $repository) {
+            $interfaceClass = 'App\\Repositories\\' . $repository;
+            $repositoryClass = 'App\\Repositories\\Eloquent\\' . $repository . 'Eloquent';
+            $this->app->singleton($interfaceClass, $repositoryClass);
         }
     }
 }

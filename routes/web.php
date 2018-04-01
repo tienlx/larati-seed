@@ -15,4 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/users', 'Example\UserController@list');
+Route::get('/users', 'Example\UserController@getUsers');

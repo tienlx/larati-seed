@@ -7,6 +7,8 @@
 
     <exclude-pattern>*.blade.php</exclude-pattern>
     <exclude-pattern>*.twig.php</exclude-pattern>
+    <exclude-pattern>.idea/</exclude-pattern>
+    <exclude-pattern>public/index.php</exclude-pattern>
     <exclude-pattern>.phpstorm.meta.php</exclude-pattern>
     <exclude-pattern>_ide_helper.php</exclude-pattern>
     <exclude-pattern>bootstrap/</exclude-pattern>

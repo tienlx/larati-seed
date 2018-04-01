@@ -3,29 +3,43 @@
 
 namespace App\Http\Controllers\Example;
 
+use App\Repositories\UserRepository;
 
-use App\Http\Controllers\Controller;
-use App\Repositories\UserRepositoryInterface;
-
-class UserController extends Controller
+class UserController extends ExampleBaseController
 {
     /**
-     * @var UserRepositoryInterface
+     * @var UserRepository
      */
     private $userRepos;
 
-    /**
-     * UserController constructor.
-     * @param UserRepositoryInterface $userRepos
-     */
-    public function __construct(UserRepositoryInterface $userRepos)
+    public function __construct(UserRepository $userRepos)
     {
-
         $this->userRepos = $userRepos;
     }
 
-    public function list()
+    public function getUsers()
     {
-        echo $this->userRepos->getModelClass();
+        $users = $this->userRepos->all();
+        return response()->json($users);
+    }
+
+    public function createUser()
+    {
+    }
+
+    public function storeUser()
+    {
+    }
+
+    public function editUser()
+    {
+    }
+
+    public function updateUser()
+    {
+    }
+
+    public function deleteUser()
+    {
     }
 }
