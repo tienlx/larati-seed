@@ -10,32 +10,13 @@ Model represent the data entity.
 
 ## Repository
 
+The seeding use http://andersonandra.de/l5-repository/ to implement Repository pattern
+
 Repositories provide interfaces for accessing models. Each model should have one repository. For example, `User` model should have `UserRepository` . 
 
 You can understand repository more with the following article.
 [https://bosnadev.com/2015/03/07/using-repository-pattern-in-laravel-5/]
 
-But we don't use paginate because we use offset / limit instead of perPage/page.
-
-### Naming rule for repository methods
-
-* `find` means get one model specified conditions. `findByUserId` means get one model by user_id ( It also means the model can unique with user_id )
-
-* `all` means get all data at once. `allByCategoryId` fetch all data which has specified category_id.
-
-* `get` means get data by using paging ( offset and limit ). 
-
-* `count` means count number of data and returns integer value.
-
-* `delete` means delete data
-
-* `create` means create new model
-
-* `update` means update model with given data
-
-* `save` means save current model to storage.
-
-Repository should not include other than the following methods and if you need to create other methods, you need to consider using services.
 
 Repository should only work with single models. If you need to handle 2 or more models ( such as User and Category ). Should use service instead of repository.
 
@@ -67,6 +48,11 @@ Helpers is for utility functions which can be called from anywhare includes view
 Must run PHP CodeSniffer before creating pull request and fix all violations
 ```bash
 $ vendor/bin/phpcs --standard=phpcs.xml --extensions=php .
+```
+
+Some violations can auto fix with `phpcbf`
+```bash
+$ vendor/bin/phpcbf --standard=phpcs.xml --extensions=php .
 ```
 
 # PHP Mess Detector 
